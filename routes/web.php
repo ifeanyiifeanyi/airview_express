@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\JobApplicationController;
 use App\Http\Controllers\Admin\ManageAppliedJobsController;
 use App\Http\Controllers\Admin\ManagePaymentTypeController;
 use App\Http\Controllers\Admin\ManageVisaApplicationController;
+use App\Http\Controllers\Admin\ConsultantManagerController;
 use Illuminate\Support\Facades\DB;
 
 
@@ -127,6 +128,11 @@ Route::middleware(['auth:sanctum,admin',config('jetstream.auth_session'),'verifi
         Route::get('admin/manage_payments/edit/{id}', 'edit')->name('manage.payments.edit');
         Route::put('/admin/manage_payment/update/{id}', 'store')->name('manage.payments.update');
         Route::delete('/admin/manage_payment/delete/{id}', 'destroy')->name('manage.payments.destroy');
+    });
+
+    Route::controller(ConsultantManagerController::class)->middleware('auth:admin')->group(function(){
+        Route::get('admin/consultant-manager', 'index')->name('consult.admin.manager');
+        Route::delete('admin/consultant-manager/{id}', 'destroy')->name('consult.delete.manager');
     });
 });
 

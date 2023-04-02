@@ -96,6 +96,14 @@
             </p>
           </a>
         </li>
+        <li class="nav-item bg-light">
+          <a href="{{ route('consult.admin.manager') }}" class="nav-link">
+            <i class="nav-icon fas fa-briefcase"></i>
+            <p>
+              Consultant Messages
+            </p>
+          </a>
+        </li>
         <li class="nav-item menu-open">
           <a href="#" class="nav-link">
             <i class="nav-icon fas fa-cog"></i>
